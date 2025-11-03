@@ -7,7 +7,6 @@ import { Minus, Plus, Trash2, ShoppingCart } from 'lucide-react';
 import { CartContext, CartItem } from '@/context/CartContext';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import {
   Card,
   CardContent,
@@ -16,7 +15,6 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Label } from '@/components/ui/label';
 
 function CartItemRow({ item }: { item: CartItem }) {
   const { updateQuantity, removeFromCart } = useContext(CartContext)!;
@@ -153,36 +151,11 @@ export default function CartPage() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" size="lg">
-                Proceed to Checkout
+              <Button className="w-full" size="lg" asChild>
+                <Link href="/checkout">Proceed to Checkout</Link>
               </Button>
             </CardFooter>
           </Card>
-
-          <Card className="mt-8">
-            <CardHeader>
-                <CardTitle>Payment Information</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <form className="grid gap-4">
-                    <div className="grid gap-2">
-                        <Label htmlFor="card-number">Card Number</Label>
-                        <Input id="card-number" placeholder="**** **** **** ****" />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="grid gap-2">
-                            <Label htmlFor="expiry-date">Expires</Label>
-                            <Input id="expiry-date" placeholder="MM/YY" />
-                        </div>
-                        <div className="grid gap-2">
-                            <Label htmlFor="cvc">CVC</Label>
-                            <Input id="cvc" placeholder="123" />
-                        </div>
-                    </div>
-                </form>
-            </CardContent>
-          </Card>
-
         </div>
       </div>
     </div>

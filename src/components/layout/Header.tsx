@@ -12,6 +12,7 @@ import {
   LogOut,
   LogIn,
   UserPlus,
+  ShoppingBag,
 } from 'lucide-react';
 import { useState, useContext } from 'react';
 import { Button } from '@/components/ui/button';
@@ -95,6 +96,12 @@ export function Header() {
                       <LayoutDashboard className="mr-2 h-4 w-4" />
                       <span>Dashboard</span>
                     </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                     <Link href="/orders" className="flex items-center">
+                        <ShoppingBag className="mr-2 h-4 w-4" />
+                        <span>My Orders</span>
+                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <Heart className="mr-2 h-4 w-4" />

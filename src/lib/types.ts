@@ -25,3 +25,26 @@ export type Testimonial = {
   quote: string;
   avatarId: string;
 };
+
+export type Order = {
+    id: string;
+    customer: {
+        name: string;
+        email: string;
+        phone: string;
+        address: string;
+        city: string;
+        pincode: string;
+    };
+    items: {
+        id: string;
+        name: string;
+        quantity: number;
+        price: number;
+    }[];
+    total: number;
+    paymentMethod: 'cod' | 'upi' | 'card';
+    paymentStatus: 'pending' | 'paid' | 'failed';
+    orderStatus: 'pending' | 'shipped' | 'delivered' | 'cancelled';
+    date: Date;
+}
